@@ -5,7 +5,9 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 
-public class Launcher : MonoBehaviourPunCallbacks
+
+//Attac to Canvas On Menu
+public class Launcher : MonoBehaviourPunCallbacks  //Inharitance from that for working 
 {
     public static Launcher instance;
 
@@ -69,7 +71,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         if (!PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.ConnectUsingSettings();// For using our settings Photon
         }
 
 #if UNITY_EDITOR
@@ -88,7 +90,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         nameInputScreen.SetActive(false);
     }
 
-
+    //-----------------------------------------------------------------N1-----------------------------------------------------
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
@@ -97,7 +99,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         loadingText.text = "Joing Lobyy...";
     }
+    //-----------------------------------------------------------------N1-----------------------------------------------------
 
+    //-----------------------------------------------------------------N2-----------------------------------------------------
     public override void OnJoinedLobby()
     {
         CloseMenu();
@@ -120,6 +124,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             PhotonNetwork.NickName = PlayerPrefs.GetString("playerName");
         }
     }
+    //-----------------------------------------------------------------N2-----------------------------------------------------
 
     public void OpenRoomCreate()
     {
